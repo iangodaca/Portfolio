@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <title>Ian Godaca Portfolio</title>
+</head>
+<body>      
+    <nav class="h-auto md:h-20 p-2 w-full bg-teal-400 flex flex-col md:flex-row items-left justify-between fixed top-0 z-50">
+    <div class="flex items-center md:mt-0">
+        <img class="h-10 ml-5 rounded-full transition duration-100 hover:shadow-lg" src="logoimg.jpg" alt="My Picture">
+        <div class="flex flex-col ml-2 transition-transform duration-500 hover:scale-105">
+            <a href="#" class="text-lg md:text-lg font-bold font-[Orbitron]">Ian</a>
+            <a href="#" class="text-lg md:text-lg font-bold font-[Orbitron]">Godaca</a>
+        </div>
+    </div>
+    <ul class="flex flex-row md:flex-row w-full md:w-auto text-center md:text-left mt-2 md:mt-0 mr-20 font-[Orbitron]">
+        <li><a href="#home" class="block py-2 px-4 hover:text-stone-50 hover:underline font-bold transition duration-300">Home</a></li>
+        <li><a href="#about" class="block py-2 px-4 hover:text-stone-50 hover:underline font-bold transition duration-300">About Me</a></li>
+        <li><a href="#projects" class="block py-2 px-4 hover:text-stone-50 hover:underline font-bold transition duration-300">My Projects</a></li>
+        <li><a href="#contact" class="block py-2 px-4 hover:text-stone-50 hover:underline font-bold transition duration-300">Contact</a></li>
+    </ul>
+    </nav>
+    <section id="home" class="h-screen flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat px-4 text-center transition-transform duration-500 hover:scale-105" style="background-image: url('bgimg.jpg');">
+        <div class="absolute inset-0 bg-black bg-opacity-50 pointer-events-none"></div>
+        <div class="relative text-black p-8 rounded-lg bg-white/50 mt-20">
+            <h1 class="text-4xl md:text-5xl font-extrabold font-[Exo_2]">Welcome to My Portfolio</h1>
+            <p class="text-xl md:text-3xl mt-4">I am <span class="font-bold md:text-4xl font-[Orbitron]">Ian Godaca</span>, a passionate</p>
+            <p class="text-xl md:text-4xl font-bold font-[Orbitron]">UI / UX Designer</p> 
+            <p class="text-xl md:text-4xl font-bold font-[Orbitron]">Data Analyst</p> 
+            <div class="flex gap-4 mt-8 justify-center">
+                <a href="Ian_Godaca_Resume.pdf" target="_blank" class="px-6 py-3 bg-teal-600 text-white font-[Orbitron] rounded-lg transition-transform duration-500 hover:scale-105 hover:bg-blue-700">
+                    View my Resume
+                </a>
+                <a href="#contact" class="px-6 py-3 bg-teal-600 text-white font-[Orbitron] rounded-lg transition-transform duration-500 hover:scale-105 hover:bg-blue-700">
+                    Get in Touch
+                </a>
+            </div>  
+        </div>
+    </section>
+    
+    <section id="about" class="h-auto py-12 px-4 md:px-12 bg-[#ccf7ff] text-center">
+    <div class="max-w-2xl mx-auto">
+        <h1 class="text-4xl font-[Orbitron] font-semibold text-dark mb-4 mt-8">About Me</h1>
+        <p class="text-lg">
+            I'm a <span class="font-semibold">web developer</span> with a passion for creating functional and user-friendly websites.
+            With expertise in UI/UX design and data analysis.
+        </p>
+        <p class="mt-4 text-lg">
+            I specialize in modern web technologies like <span class="font-semibold">HTML, CSS, JavaScript, Tailwind CSS, and Bootstrap</span>.
+            My goal is to turn ideas into seamless web applications that enhance user interaction and provide value.
+        </p>
+    </div>
+    <div class="container mt-6">
+        <h2 class="text-2xl font-semibold text-dark font-[Orbitron] mb-4">My Skills</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <h3 class="text-xl font-semibold text-dark text-center mb-2 font-[Orbitron]">Hard Skills</h3>
+                <div class="space-y-3">
+                    <div>
+                        <h5 class="text-left mb-1">UI/UX Design</h5>
+                        <div class="bg-gray-200 h-6 border border-secondary rounded-md transition-transform duration-500 hover:scale-105">
+                            <div class="bg-secondary text-white h-full text-center rounded-md" style="width: 85%;">85%</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="text-left mb-1">Data Analyst</h5>
+                        <div class="bg-gray-200 h-6 border border-info rounded-md transition-transform duration-500 hover:scale-105">
+                            <div class="bg-info text-white h-full text-center rounded-md" style="width: 80%;">80%</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="text-left mb-1">HTML</h5>
+                        <div class="bg-gray-200 h-6 border border-primary rounded-md transition-transform duration-500 hover:scale-105">
+                            <div class="bg-primary text-white h-full text-center rounded-md" style="width: 75%;">75%</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="text-left mb-1">CSS</h5>
+                        <div class="bg-gray-200 h-6 border border-success rounded-md transition-transform duration-500 hover:scale-105">
+                            <div class="bg-success text-white h-full text-center rounded-md" style="width: 70%;">70%</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="text-left mb-1">Tailwind</h5>
+                        <div class="bg-gray-200 h-6 border border-danger rounded-md transition-transform duration-500 hover:scale-105">
+                            <div class="bg-danger text-white h-full text-center rounded-md" style="width: 50%;">50%</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="text-left mb-1">Bootstrap</h5>
+                        <div class="bg-gray-200 h-6 border border-warning rounded-md transition-transform duration-500 hover:scale-105">
+                            <div class="bg-warning text-white h-full text-center rounded-md" style="width: 50%;">50%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-xl font-semibold text-dark text-center mb-2 font-[Orbitron]">Soft Skills</h3>
+                <div class="space-y-3">
+                    <div>
+                        <h5 class="text-left mb-1">Teamwork</h5>
+                        <div class="bg-gray-200 h-6 border border-warning rounded-md transition-transform duration-500 hover:scale-105">
+                            <div class="bg-warning text-white h-full text-center rounded-md" style="width: 80%;">80%</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="text-left mb-1">Problem-Solving</h5>
+                        <div class="bg-gray-200 h-6 border border-success rounded-md transition-transform duration-500 hover:scale-105">
+                            <div class="bg-success text-white h-full text-center rounded-md" style="width: 75%;">75%</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="text-left mb-1">Adaptability</h5>
+                        <div class="bg-gray-200 h-6 border border-info rounded-md transition-transform duration-500 hover:scale-105">
+                            <div class="bg-info text-white h-full text-center rounded-md" style="width: 55%;">55%</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="text-left mb-1">Creativity</h5>
+                        <div class="bg-gray-200 h-6 border border-danger rounded-md transition-transform duration-500 hover:scale-105">
+                            <div class="bg-danger text-white h-full text-center rounded-md" style="width: 50%;">50%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    </section>
+    <section id="projects" class="bg-gray-200 h-auto flex flex-col items-center justify-center px-4 text-center">
+        <div class="max-w-3xl">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4 font-[Orbitron] mt-20">My Projects</h1>
+            <p class="text-lg font-semibold text-gray-700">Explore some of my recent works showcasing creativity, functionality, and user experience.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 max-w-8xl">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-500 hover:scale-105">
+                <img src="project1.png" alt="Portfolio Website" class="w-full h-60 object-cover">
+                <div class="p-4">
+                    <h2 class="text-2xl font-bold text-gray-800">Photo Gallery</h2>
+                    <h2 class="text-md font-semibold text-gray-800 mt-2">Bleach Characters</h2>
+                    <p class="text-gray-600">A visually engaging gallery showcasing high-quality images of popular Bleach characters.</p>
+                </div>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-500 hover:scale-105">
+                <img src="project2.png" alt="E-Commerce Platform" class="w-full h-60 object-cover">
+                <div class="p-4">
+                    <h2 class="text-2xl font-bold text-gray-800">Simple Website</h2>
+                    <h2 class="text-md font-semibold text-gray-800 mt-2">BoraPalRadisePH</h2>
+                    <p class="text-gray-600">A minimalist and user-friendly website promoting the beauty of beaches in the Philippines.</p>
+                </div>
+            </div>
+            <a href="https://bagocityjobplacement.bccbsis.com/" target="_blank" class="block">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-500 hover:scale-105">
+                    <img src="project3.png" alt="Job Matching System" class="w-full h-60 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-2xl font-bold text-gray-800">Capstone 2</h2>
+                        <h2 class="text-md font-semibold text-gray-800 mt-2">Web-Based Digital Job Placement System with Machine Learning Capability</h2>
+                        <p class="text-gray-600">An intelligent job-matching platform that connects job seekers with employers using AI-powered recommendations.</p>
+                    </div>
+                </div>
+            </a>            
+        </div>
+    </section>
+    <section id="contact" class="container my-3 h-auto"><br>
+        <div class="text-center mb-4">
+            <h1 class="display-4 text-4xl fw-semibold text-dark font-[Orbitron] mt-14">Contact</h1>
+            <p class="text-secondary fs-5 fw-normal font-[Orbitron]">Let's talk</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="p-4 bg-white shadow-lg rounded">
+                    <form id="cform" method="post">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Full Name <span class="text-danger">*</span></label>
+                            <input type="text" name="name" placeholder="eg.: Kurt Aeriole Padilla" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Email Address <span class="text-danger">*</span></label>
+                            <input type="email" name="email" placeholder="eg.: kurtpad2000@gmail.com" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Message <span class="text-danger">*</span></label>
+                            <textarea name="message" placeholder="Your message here..." class="form-control" rows="5" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary transition-transform duration-500 hover:scale-105">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-white shadow-lg rounded">
+                    <h2 class="h4 fw-bold text-center">Ian Godaca</h2>
+                    <p class="text-secondary text-center">Consultant & Mentor</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <ul class="list-unstyled mt-3 ml-4 text-dark">
+                            <li><strong>Age:</strong> 22</li>
+                            <li><strong>Address:</strong> Bago City</li>
+                            <li><strong>Residence:</strong> Philippines</li>
+                            <li><strong>Freelance:</strong> Available</li>
+                            <li><strong>Phone:</strong> +63 991 758 3639</li>
+                            <li><strong>E-mail:</strong> ianparcongodaca@gmail.com</li>
+                        </ul>
+                        <div class="col-md-6 d-flex justify-content-end transition-transform duration-500 hover:scale-105">
+                            <img src="contactimg.jpg" alt="Ian Godaca Picture" class="img-fluid rounded-circle shadow-lg h-40 w-40" >
+                        </div>
+                    </div> 
+                </div>           
+                <div class="col-md-6 mt-3 ml-5">
+                    <a href="https://www.facebook.com/ian.godaca.77" class="d-flex align-items-center text-primary mb-2 hover:underline">
+                        <i class="fa-brands fa-square-facebook me-2 fs-3"></i> Ian Godaca
+                    </a>
+                    <a href="mailto:ianparcongodaca@gmail.com" class="d-flex align-items-center text-primary mb-2 hover:underline">
+                        <i class="fa-solid fa-envelope me-2 fs-3"></i> ianparcongodaca@gmail.com
+                    </a>
+                    <a href="https://www.tiktok.com/@iangodaca" class="d-flex align-items-center text-primary mb-2 hover:underline">
+                        <i class="fa-brands fa-tiktok me-2 fs-3"></i> @iangodaca
+                    </a>
+                    <a href="https://www.instagram.com/iangodaca9" class="d-flex align-items-center text-primary hover:underline">
+                        <i class="fa-brands fa-instagram me-2 fs-3"></i> iangodaca_
+                    </a>
+                </div>                
+            </div>
+        </div>
+    </section>
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Ian Godaca - UI / UX Designer | Data Analyst. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
