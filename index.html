@@ -11,44 +11,68 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <title>Ian Godaca Portfolio</title>
+    <style>
+        nav ul li a.active {
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<body>      
-    <nav class="h-auto md:h-20 p-2 w-full bg-teal-400 flex flex-col md:flex-row items-left justify-between fixed top-0 z-50">
+<body class="font-sans leading-normal tracking-normal bg-[#F8EDED] text-[#4D4D4D]">      
+    <nav class="h-auto md:h-20 p-2 w-full bg-[#FCB454] flex flex-col md:flex-row items-left justify-between fixed top-0 z-50 shadow-lg">
     <div class="flex items-center md:mt-0">
-        <img class="h-10 ml-5 rounded-full transition duration-100 hover:shadow-lg" src="logoimg.jpg" alt="My Picture">
+        <img class="h-10 ml-5 rounded-full transition duration-300 hover:shadow-lg hover:scale-110" src="logoimg.jpg" alt="My Picture">
         <div class="flex flex-col ml-2 transition-transform duration-500 hover:scale-105">
-            <a href="#" class="text-lg md:text-lg font-bold font-[Orbitron]">Ian</a>
-            <a href="#" class="text-lg md:text-lg font-bold font-[Orbitron]">Godaca</a>
+            <a href="#" class="text-lg md:text-lg font-bold font-[Orbitron] text-[#4D4D4D]">Ian</a>
+            <a href="#" class="text-lg md:text-lg font-bold font-[Orbitron] text-[#4D4D4D]">Godaca</a>
         </div>
     </div>
     <ul class="flex flex-row md:flex-row w-full md:w-auto text-center md:text-left mt-2 md:mt-0 mr-20 font-[Orbitron]">
-        <li><a href="#home" class="block py-2 px-4 hover:text-stone-50 hover:underline font-bold transition duration-300">Home</a></li>
-        <li><a href="#about" class="block py-2 px-4 hover:text-stone-50 hover:underline font-bold transition duration-300">About Me</a></li>
-        <li><a href="#projects" class="block py-2 px-4 hover:text-stone-50 hover:underline font-bold transition duration-300">My Projects</a></li>
-        <li><a href="#contact" class="block py-2 px-4 hover:text-stone-50 hover:underline font-bold transition duration-300">Contact</a></li>
+        <li>
+            <a href="#home" class="block py-2 px-4 hover:text-white hover:underline font-bold transition duration-300 active:text-white active:underline">
+                <i class="fa-solid fa-house mr-2"></i>Home
+            </a>
+        </li>
+        <li>
+            <a href="#about" class="block py-2 px-4 hover:text-white hover:underline font-bold transition duration-300 active:text-white active:underline">
+                <i class="fa-solid fa-user mr-2"></i>About Me
+            </a>
+        </li>
+        <li>
+            <a href="#projects" class="block py-2 px-4 hover:text-white hover:underline font-bold transition duration-300 active:text-white active:underline">
+                <i class="fa-solid fa-briefcase mr-2"></i>My Projects
+            </a>
+        </li>
+        <li>
+            <a href="#contact" class="block py-2 px-4 hover:text-white hover:underline font-bold transition duration-300 active:text-white active:underline">
+                <i class="fa-solid fa-envelope mr-2"></i>Contact
+            </a>
+        </li>
     </ul>
     </nav>
     <section id="home" class="h-screen flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat px-4 text-center transition-transform duration-500 hover:scale-105" style="background-image: url('bgimg.jpg');">
         <div class="absolute inset-0 bg-black bg-opacity-50 pointer-events-none"></div>
-        <div class="relative text-black p-8 rounded-lg bg-white/50 mt-20">
+        <div class="relative text-[#4D4D4D] p-8 rounded-lg bg-[#F8EDED]/80 mt-20 animate-fade-in">
             <h1 class="text-4xl md:text-5xl font-extrabold font-[Exo_2]">Welcome to My Portfolio</h1>
             <p class="text-xl md:text-3xl mt-4">I am <span class="font-bold md:text-4xl font-[Orbitron]">Ian Godaca</span>, a passionate</p>
             <p class="text-xl md:text-4xl font-bold font-[Orbitron]">UI / UX Designer</p> 
             <p class="text-xl md:text-4xl font-bold font-[Orbitron]">Data Analyst</p> 
             <div class="flex gap-4 mt-8 justify-center">
-                <a href="Ian_Godaca_Resume.pdf" target="_blank" class="px-6 py-3 bg-teal-600 text-white font-[Orbitron] rounded-lg transition-transform duration-500 hover:scale-105 hover:bg-blue-700">
-                    View my Resume
+                <a href="Ian_Godaca_Resume.pdf" target="_blank" class="relative px-6 py-3 bg-[#FCB454] text-black font-[Orbitron] rounded-lg transition-transform duration-500 hover:scale-105 hover:bg-white">
+                    <i class="fa-solid fa-file-pdf mr-2"></i>View my Resume
+                    <span class="absolute inset-0 rounded-lg border-2 border-transparent hover:border-white transition-all duration-300"></span>
                 </a>
-                <a href="#contact" class="px-6 py-3 bg-teal-600 text-white font-[Orbitron] rounded-lg transition-transform duration-500 hover:scale-105 hover:bg-blue-700">
-                    Get in Touch
+                <a href="#contact" class="relative px-6 py-3 bg-[#FCB454] text-black font-[Orbitron] rounded-lg transition-transform duration-500 hover:scale-105 hover:bg-white">
+                    <i class="fa-solid fa-paper-plane mr-2"></i>Get in Touch
+                    <span class="absolute inset-0 rounded-lg border-2 border-transparent hover:border-white transition-all duration-300"></span>
                 </a>
             </div>  
         </div>
     </section>
     
-    <section id="about" class="h-auto py-12 px-4 md:px-12 bg-[#ccf7ff] text-center">
-    <div class="max-w-2xl mx-auto">
-        <h1 class="text-4xl font-[Orbitron] font-semibold text-dark mb-4 mt-8">About Me</h1>
+    <section id="about" class="h-auto py-12 px-4 md:px-12 bg-[#F8EDED] text-center">
+    <div class="max-w-2xl mx-auto animate-slide-in">
+        <h1 class="text-4xl font-[Orbitron] font-semibold text-[#4D4D4D] mb-4 mt-8">About Me</h1>
         <p class="text-lg">
             I'm a <span class="font-semibold">web developer</span> with a passion for creating functional and user-friendly websites.
             With expertise in UI/UX design and data analysis.
@@ -59,15 +83,15 @@
         </p>
     </div>
     <div class="container mt-6">
-        <h2 class="text-2xl font-semibold text-dark font-[Orbitron] mb-4">My Skills</h2>
+        <h2 class="text-2xl font-semibold text-[#4D4D4D] font-[Orbitron] mb-4">My Skills</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-                <h3 class="text-xl font-semibold text-dark text-center mb-2 font-[Orbitron]">Hard Skills</h3>
+                <h3 class="text-xl font-semibold text-[#4D4D4D] text-center mb-2 font-[Orbitron]">Hard Skills</h3>
                 <div class="space-y-3">
                     <div>
                         <h5 class="text-left mb-1">UI/UX Design</h5>
-                        <div class="bg-gray-200 h-6 border border-secondary rounded-md transition-transform duration-500 hover:scale-105">
-                            <div class="bg-secondary text-white h-full text-center rounded-md" style="width: 85%;">85%</div>
+                        <div class="bg-gray-200 h-6 border border-[#FCB454] rounded-md transition-transform duration-500 hover:scale-105">
+                            <div class="bg-[#FCB454] text-white h-full text-center rounded-md animate-grow" style="width: 85%;">85%</div>
                         </div>
                     </div>
                     <div>
@@ -103,12 +127,12 @@
                 </div>
             </div>
             <div>
-                <h3 class="text-xl font-semibold text-dark text-center mb-2 font-[Orbitron]">Soft Skills</h3>
+                <h3 class="text-xl font-semibold text-[#4D4D4D] text-center mb-2 font-[Orbitron]">Soft Skills</h3>
                 <div class="space-y-3">
                     <div>
                         <h5 class="text-left mb-1">Teamwork</h5>
-                        <div class="bg-gray-200 h-6 border border-warning rounded-md transition-transform duration-500 hover:scale-105">
-                            <div class="bg-warning text-white h-full text-center rounded-md" style="width: 80%;">80%</div>
+                        <div class="bg-gray-200 h-6 border border-[#FCB454] rounded-md transition-transform duration-500 hover:scale-105">
+                            <div class="bg-[#FCB454] text-white h-full text-center rounded-md animate-grow" style="width: 80%;">80%</div>
                         </div>
                     </div>
                     <div>
@@ -135,12 +159,12 @@
     </div> 
     </section>
     <section id="projects" class="bg-gray-200 h-auto flex flex-col items-center justify-center px-4 text-center">
-        <div class="max-w-3xl">
+        <div class="max-w-3xl animate-slide-in">
             <h1 class="text-4xl font-bold text-gray-800 mb-4 font-[Orbitron] mt-20">My Projects</h1>
             <p class="text-lg font-semibold text-gray-700">Explore some of my recent works showcasing creativity, functionality, and user experience.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 max-w-8xl">
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-500 hover:scale-105">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-500 hover:scale-105 animate-fade-in">
                 <img src="project1.png" alt="Portfolio Website" class="w-full h-60 object-cover">
                 <div class="p-4">
                     <h2 class="text-2xl font-bold text-gray-800">Photo Gallery</h2>
@@ -200,7 +224,7 @@
             <div class="col-md-6">
                 <div class="p-4 bg-white shadow-lg rounded">
                     <h2 class="h4 fw-bold text-center">Ian Godaca</h2>
-                    <p class="text-secondary text-center">Consultant & Mentor</p>
+                    <p class="text-secondary text-center">UI / UX Designer | Data Analyst</p>
                     <div class="d-flex align-items-center justify-content-between">
                         <ul class="list-unstyled mt-3 ml-4 text-dark">
                             <li><strong>Age:</strong> 22</li>
@@ -232,14 +256,46 @@
             </div>
         </div>
     </section>
-    <footer class="bg-dark text-white text-center py-3 mt-5">
+    <footer class="bg-[#4D4D4D] text-white text-center py-5 mt-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; 2025 Ian Godaca - UI / UX Designer | Data Analyst. All rights reserved.</p>
+                    <p class="mb-3">&copy; 2025 Ian Godaca - UI / UX Designer | Data Analyst. All rights reserved.</p>
+                    <button onclick="scrollToTop()" class="btn btn-outline-light px-4 py-2 transition-transform duration-500 hover:scale-110">
+                        Back to Top
+                    </button>
                 </div>
             </div>
         </div>
     </footer>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const navLinks = document.querySelectorAll("nav ul li a");
+            const sections = document.querySelectorAll("section");
+
+            function setActiveLink() {
+                let currentSection = "";
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop - 100; // Adjust offset for fixed navbar
+                    if (window.scrollY >= sectionTop) {
+                        currentSection = section.getAttribute("id");
+                    }
+                });
+
+                navLinks.forEach((link) => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href").includes(currentSection)) {
+                        link.classList.add("active");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", setActiveLink);
+        });
+    </script>
 </body>
 </html>
