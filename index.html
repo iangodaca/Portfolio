@@ -16,6 +16,29 @@
             color: white;
             text-decoration: underline;
         }
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fade-in 1s ease-in-out both;
+    }
+
+    @keyframes slide-in {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .animate-slide-in {
+      animation: slide-in 1s ease-in-out both;
+    }
+
+    @keyframes grow {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    .animate-grow {
+      animation: grow 2s ease-out;
+    }
     </style>
 </head>
 <body class="font-sans leading-normal tracking-normal bg-[#F8EDED] text-[#4D4D4D]">      
@@ -296,6 +319,11 @@
 
             window.addEventListener("scroll", setActiveLink);
         });
+    </script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        ScrollReveal().reveal('.animate-slide-in', { delay: 100, distance: '50px', origin: 'bottom', duration: 800, easing: 'ease-in-out' });
+        ScrollReveal().reveal('.animate-fade-in', { delay: 300, distance: '0', opacity: 0, duration: 1000 });
     </script>
 </body>
 </html>
