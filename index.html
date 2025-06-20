@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ian Godaca - Professional UI/UX Designer and Data Analyst Portfolio. View my projects and skills in web development and data analysis.">
+    <meta name="keywords" content="UI/UX Design, Data Analysis, Web Development, Portfolio, Ian Godaca">
+    <meta name="author" content="Ian Godaca">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -12,318 +16,710 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <title>Ian Godaca Portfolio</title>
     <style>
-        nav ul li a.active {
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0d9488;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            text-decoration: underline;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
         }
-    @keyframes fade-in {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in {
-      animation: fade-in 1s ease-in-out both;
-    }
+        .scroll-to-top.visible {
+            opacity: 1;
+        }
 
-    @keyframes slide-in {
-      from { opacity: 0; transform: translateX(-30px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    .animate-slide-in {
-      animation: slide-in 1s ease-in-out both;
-    }
+        /* Loading animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
 
-    @keyframes grow {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    .animate-grow {
-      animation: grow 2s ease-out;
-    }
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader::after {
+            content: "";
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #0d9488;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Typing animation */
+        .typing::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Add these new animations to your existing styles */
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slide-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 1s ease-out forwards;
+        }
+
+        .animate-slide-up {
+            animation: slide-up 0.8s ease-out forwards;
+        }
+
+        /* Enhance the typing animation */
+        .typing::after {
+            content: '|';
+            animation: blink 1s infinite;
+            color: #0d9488;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Add these new animations to your existing styles */
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        @keyframes line-animation {
+            0% { transform: scaleX(0); opacity: 0; }
+            50% { transform: scaleX(1); opacity: 0.5; }
+            100% { transform: scaleX(0); opacity: 0; }
+        }
+
+        .floating-element {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .floating-element:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(4) {
+            animation-delay: 3s;
+        }
+
+        .animated-line {
+            position: absolute;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #0d9488, transparent);
+            animation: line-animation 4s ease-in-out infinite;
+        }
+
+        .animated-line:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .animated-line:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-spin-slow {
+            animation: spin-slow 8s linear infinite;
+        }
+
+        /* Add a subtle pulse effect */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(13, 148, 136, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(13, 148, 136, 0);
+            }
+        }
+
+        .group:hover .rounded-full {
+            animation: pulse 2s infinite;
+        }
     </style>
 </head>
-<body class="font-sans leading-normal tracking-normal bg-[#F8EDED] text-[#4D4D4D]">      
-    <nav class="h-auto md:h-20 p-2 w-full bg-[#FCB454] flex flex-col md:flex-row items-left justify-between fixed top-0 z-50 shadow-lg">
-    <div class="flex items-center md:mt-0">
-        <img class="h-10 ml-5 rounded-full transition duration-300 hover:shadow-lg hover:scale-110" src="logoimg.jpg" alt="My Picture">
-        <div class="flex flex-col ml-2 transition-transform duration-500 hover:scale-105">
-            <a href="#" class="text-lg md:text-lg font-bold font-[Orbitron] text-[#4D4D4D]">Ian</a>
-            <a href="#" class="text-lg md:text-lg font-bold font-[Orbitron] text-[#4D4D4D]">Godaca</a>
+<body>      
+    <div class="loader"></div>
+    <nav class="h-auto md:h-20 p-2 w-full bg-teal-400 flex flex-col md:flex-row items-left justify-between fixed top-0 z-50 shadow-lg transition-all duration-300">
+        <div class="flex items-center md:mt-0">
+            <div class="relative h-12 w-12 ml-5 group">
+                <!-- Profile Picture Container -->
+                <div class="absolute inset-0 rounded-full overflow-hidden">
+                    <!-- Main Image -->
+                    <img class="h-full w-full object-cover transition-all duration-500 group-hover:scale-110" src="logoimg.jpg" alt="My Picture">
+                    <!-- Hover Overlay -->
+                    <div class="absolute inset-0 bg-teal-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <!-- Glowing Border -->
+                    <div class="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-teal-400 transition-all duration-300"></div>
+                </div>
+                <!-- Animated Ring -->
+                <div class="absolute inset-0 rounded-full border-2 border-teal-400/30 animate-spin-slow"></div>
+            </div>
+            <div class="flex flex-col ml-3 transition-transform duration-500 hover:scale-105">
+                <a href="#" class="text-lg md:text-xl font-bold font-[Orbitron] text-white">Ian</a>
+                <a href="#" class="text-lg md:text-xl font-bold font-[Orbitron] text-white">Godaca</a>
+            </div>
         </div>
-    </div>
-    <ul class="flex flex-row md:flex-row w-full md:w-auto text-center md:text-left mt-2 md:mt-0 mr-20 font-[Orbitron]">
-        <li>
-            <a href="#home" class="block py-2 px-4 hover:text-white hover:underline font-bold transition duration-300 active:text-white active:underline">
-                <i class="fa-solid fa-house mr-2"></i>Home
-            </a>
-        </li>
-        <li>
-            <a href="#about" class="block py-2 px-4 hover:text-white hover:underline font-bold transition duration-300 active:text-white active:underline">
-                <i class="fa-solid fa-user mr-2"></i>About Me
-            </a>
-        </li>
-        <li>
-            <a href="#projects" class="block py-2 px-4 hover:text-white hover:underline font-bold transition duration-300 active:text-white active:underline">
-                <i class="fa-solid fa-briefcase mr-2"></i>My Projects
-            </a>
-        </li>
-        <li>
-            <a href="#contact" class="block py-2 px-4 hover:text-white hover:underline font-bold transition duration-300 active:text-white active:underline">
-                <i class="fa-solid fa-envelope mr-2"></i>Contact
-            </a>
-        </li>
-    </ul>
+        <button class="md:hidden absolute right-4 top-4 text-white" id="mobile-menu-button">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
+        <ul class="hidden md:flex flex-row md:flex-row w-full md:w-auto text-center md:text-left mt-2 md:mt-0 mr-20 font-[Orbitron] items-center justify-center md:justify-end" id="nav-menu">
+            <li><a href="#home" class="nav-link block py-2 px-4 text-white hover:text-stone-50 hover:underline font-bold transition duration-300">Home</a></li>
+            <li><a href="#about" class="nav-link block py-2 px-4 text-white hover:text-stone-50 hover:underline font-bold transition duration-300">About Me</a></li>
+            <li><a href="#projects" class="nav-link block py-2 px-4 text-white hover:text-stone-50 hover:underline font-bold transition duration-300">My Projects</a></li>
+            <li><a href="#contact" class="nav-link block py-2 px-4 text-white hover:text-stone-50 hover:underline font-bold transition duration-300">Contact</a></li>
+        </ul>
     </nav>
-    <section id="home" class="h-screen flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat px-4 text-center transition-transform duration-500 hover:scale-105" style="background-image: url('bgimg.jpg');">
-        <div class="absolute inset-0 bg-black bg-opacity-50 pointer-events-none"></div>
-        <div class="relative text-[#4D4D4D] p-8 rounded-lg bg-[#F8EDED]/80 mt-20 animate-fade-in">
-            <h1 class="text-4xl md:text-5xl font-extrabold font-[Exo_2]">Welcome to My Portfolio</h1>
-            <p class="text-xl md:text-3xl mt-4">I am <span class="font-bold md:text-4xl font-[Orbitron]">Ian Godaca</span>, a passionate</p>
-            <p class="text-xl md:text-4xl font-bold font-[Orbitron]">UI / UX Designer</p> 
-            <p class="text-xl md:text-4xl font-bold font-[Orbitron]">Data Analyst</p> 
-            <div class="flex gap-4 mt-8 justify-center">
-                <a href="Ian_Godaca_Resume.pdf" target="_blank" class="relative px-6 py-3 bg-[#FCB454] text-black font-[Orbitron] rounded-lg transition-transform duration-500 hover:scale-105 hover:bg-white">
-                    <i class="fa-solid fa-file-pdf mr-2"></i>View my Resume
-                    <span class="absolute inset-0 rounded-lg border-2 border-transparent hover:border-white transition-all duration-300"></span>
-                </a>
-                <a href="#contact" class="relative px-6 py-3 bg-[#FCB454] text-black font-[Orbitron] rounded-lg transition-transform duration-500 hover:scale-105 hover:bg-white">
-                    <i class="fa-solid fa-paper-plane mr-2"></i>Get in Touch
-                    <span class="absolute inset-0 rounded-lg border-2 border-transparent hover:border-white transition-all duration-300"></span>
-                </a>
-            </div>  
+    <section id="home" class="h-screen relative flex flex-col items-center justify-center overflow-hidden bg-gradient-to-r from-teal-500 to-teal-700">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+            <!-- Left side - Text content -->
+            <div class="text-center md:text-left md:w-1/2 mb-8 md:mb-0">
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-105">
+                    <h1 class="text-4xl md:text-6xl font-extrabold font-[Exo_2] mb-6 text-white animate-fade-in">
+                        Welcome to My Portfolio
+                    </h1>
+                    <div class="space-y-4">
+                        <p class="text-xl md:text-3xl text-white/90 animate-slide-up">
+                            I am <span class="font-bold md:text-4xl font-[Orbitron] text-teal-200">Ian Godaca</span>
+                        </p>
+                        <p class="text-xl md:text-3xl text-white/90 typing animate-slide-up" id="typing-text"></p>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-4 mt-8 justify-center md:justify-start animate-fade-in">
+                        <a href="Ian_Godaca_Resume.pdf" target="_blank" 
+                            class="group px-6 py-3 bg-teal-600 text-white font-[Orbitron] rounded-lg transition-all duration-300 hover:scale-105 hover:bg-teal-700 hover:shadow-lg">
+                            <i class="fas fa-file-alt mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+                            View my Resume
+                        </a>
+                        <a href="#contact" 
+                            class="group px-6 py-3 bg-white/20 backdrop-blur-sm text-white font-[Orbitron] rounded-lg transition-all duration-300 hover:scale-105 hover:bg-white/30 hover:shadow-lg">
+                            <i class="fas fa-envelope mr-2 group-hover:rotate-12 transition-transform duration-300"></i>
+                            Get in Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right side - Image -->
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-96 md:h-96 transform transition-all duration-500 hover:scale-105">
+                    <div class="absolute inset-0 rounded-full overflow-hidden shadow-2xl">
+                        <img src="bgimg.jpg" alt="Ian Godaca" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Decorative elements -->
+                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-teal-400 rounded-full opacity-20 animate-pulse"></div>
+                    <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-teal-300 rounded-full opacity-20 animate-pulse"></div>
+                    <!-- Animated border -->
+                    <div class="absolute inset-0 rounded-full border-4 border-teal-400/30 animate-spin-slow"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-white/80 hover:text-white transition-colors duration-300">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
         </div>
     </section>
     
-    <section id="about" class="h-auto py-12 px-4 md:px-12 bg-[#F8EDED] text-center">
-    <div class="max-w-2xl mx-auto animate-slide-in">
-        <h1 class="text-4xl font-[Orbitron] font-semibold text-[#4D4D4D] mb-4 mt-8">About Me</h1>
-        <p class="text-lg">
-            I'm a <span class="font-semibold">web developer</span> with a passion for creating functional and user-friendly websites.
-            With expertise in UI/UX design and data analysis.
-        </p>
-        <p class="mt-4 text-lg">
-            I specialize in modern web technologies like <span class="font-semibold">HTML, CSS, JavaScript, Tailwind CSS, and Bootstrap</span>.
-            My goal is to turn ideas into seamless web applications that enhance user interaction and provide value.
-        </p>
-    </div>
-    <div class="container mt-6">
-        <h2 class="text-2xl font-semibold text-[#4D4D4D] font-[Orbitron] mb-4">My Skills</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-                <h3 class="text-xl font-semibold text-[#4D4D4D] text-center mb-2 font-[Orbitron]">Hard Skills</h3>
-                <div class="space-y-3">
-                    <div>
-                        <h5 class="text-left mb-1">UI/UX Design</h5>
-                        <div class="bg-gray-200 h-6 border border-[#FCB454] rounded-md transition-transform duration-500 hover:scale-105">
-                            <div class="bg-[#FCB454] text-white h-full text-center rounded-md animate-grow" style="width: 85%;">85%</div>
+    <section id="about" class="h-auto py-20 px-4 md:px-12 bg-gradient-to-b from-[#ccf7ff] to-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-[Orbitron] font-bold text-teal-600 mb-4">About Me</h1>
+                <div class="w-24 h-1 bg-teal-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left side - Image -->
+                <div class="relative">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
+                        <div class="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105">
+                            <img src="bgimg.jpg" alt="Ian Godaca" class="w-full h-full object-cover">
                         </div>
+                        <!-- Decorative elements -->
+                        <div class="absolute -top-4 -right-4 w-24 h-24 bg-teal-400 rounded-full opacity-20 animate-pulse"></div>
+                        <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-teal-300 rounded-full opacity-20 animate-pulse"></div>
                     </div>
-                    <div>
-                        <h5 class="text-left mb-1">Data Analyst</h5>
-                        <div class="bg-gray-200 h-6 border border-info rounded-md transition-transform duration-500 hover:scale-105">
-                            <div class="bg-info text-white h-full text-center rounded-md" style="width: 80%;">80%</div>
-                        </div>
+                </div>
+
+                <!-- Right side - Content -->
+                <div class="space-y-6">
+                    <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg">
+                        <h2 class="text-2xl font-[Orbitron] font-semibold text-teal-600 mb-4">Fresh Graduate & Aspiring Developer</h2>
+                        <p class="text-gray-700 leading-relaxed">
+                            I am a recent graduate from Bago City College with a Bachelor of Science in Information System. During my academic journey, I developed a strong foundation in web development and data analysis, which I further enhanced through my On-the-Job Training at Negros Occidental Language and Information Technology Center (NOLITC) under the Software Development Training Program (SDTP).
+                        </p>
                     </div>
-                    <div>
-                        <h5 class="text-left mb-1">HTML</h5>
-                        <div class="bg-gray-200 h-6 border border-primary rounded-md transition-transform duration-500 hover:scale-105">
-                            <div class="bg-primary text-white h-full text-center rounded-md" style="width: 75%;">75%</div>
-                        </div>
+
+                    <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg">
+                        <h2 class="text-2xl font-[Orbitron] font-semibold text-teal-600 mb-4">Technical Expertise</h2>
+                        <p class="text-gray-700 leading-relaxed">
+                            My technical skills encompass modern web technologies including HTML5, CSS3, JavaScript, Tailwind CSS, and Bootstrap. I specialize in creating responsive, user-friendly interfaces and implementing data-driven solutions. My experience at NOLITC has equipped me with practical knowledge in software development and project management.
+                        </p>
                     </div>
-                    <div>
-                        <h5 class="text-left mb-1">CSS</h5>
-                        <div class="bg-gray-200 h-6 border border-success rounded-md transition-transform duration-500 hover:scale-105">
-                            <div class="bg-success text-white h-full text-center rounded-md" style="width: 70%;">70%</div>
-                        </div>
-                    </div>
-                    <div>
-                        <h5 class="text-left mb-1">Tailwind</h5>
-                        <div class="bg-gray-200 h-6 border border-danger rounded-md transition-transform duration-500 hover:scale-105">
-                            <div class="bg-danger text-white h-full text-center rounded-md" style="width: 50%;">50%</div>
-                        </div>
-                    </div>
-                    <div>
-                        <h5 class="text-left mb-1">Bootstrap</h5>
-                        <div class="bg-gray-200 h-6 border border-warning rounded-md transition-transform duration-500 hover:scale-105">
-                            <div class="bg-warning text-white h-full text-center rounded-md" style="width: 50%;">50%</div>
-                        </div>
+
+                    <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg">
+                        <h2 class="text-2xl font-[Orbitron] font-semibold text-teal-600 mb-4">Career Goals</h2>
+                        <p class="text-gray-700 leading-relaxed">
+                            As a fresh graduate, I am eager to apply my knowledge and skills in a professional environment. I am particularly interested in roles that combine UI/UX design with data analysis, where I can contribute to creating meaningful digital experiences while continuing to learn and grow in the field.
+                        </p>
                     </div>
                 </div>
             </div>
-            <div>
-                <h3 class="text-xl font-semibold text-[#4D4D4D] text-center mb-2 font-[Orbitron]">Soft Skills</h3>
-                <div class="space-y-3">
-                    <div>
-                        <h5 class="text-left mb-1">Teamwork</h5>
-                        <div class="bg-gray-200 h-6 border border-[#FCB454] rounded-md transition-transform duration-500 hover:scale-105">
-                            <div class="bg-[#FCB454] text-white h-full text-center rounded-md animate-grow" style="width: 80%;">80%</div>
-                        </div>
-                    </div>
-                    <div>
-                        <h5 class="text-left mb-1">Problem-Solving</h5>
-                        <div class="bg-gray-200 h-6 border border-success rounded-md transition-transform duration-500 hover:scale-105">
-                            <div class="bg-success text-white h-full text-center rounded-md" style="width: 75%;">75%</div>
-                        </div>
-                    </div>
-                    <div>
-                        <h5 class="text-left mb-1">Adaptability</h5>
-                        <div class="bg-gray-200 h-6 border border-info rounded-md transition-transform duration-500 hover:scale-105">
-                            <div class="bg-info text-white h-full text-center rounded-md" style="width: 55%;">55%</div>
-                        </div>
-                    </div>
-                    <div>
-                        <h5 class="text-left mb-1">Creativity</h5>
-                        <div class="bg-gray-200 h-6 border border-danger rounded-md transition-transform duration-500 hover:scale-105">
-                            <div class="bg-danger text-white h-full text-center rounded-md" style="width: 50%;">50%</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> 
-    </section>
-    <section id="projects" class="bg-gray-200 h-auto flex flex-col items-center justify-center px-4 text-center">
-        <div class="max-w-3xl animate-slide-in">
-            <h1 class="text-4xl font-bold text-gray-800 mb-4 font-[Orbitron] mt-20">My Projects</h1>
-            <p class="text-lg font-semibold text-gray-700">Explore some of my recent works showcasing creativity, functionality, and user experience.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 max-w-8xl">
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-500 hover:scale-105 animate-fade-in">
-                <img src="project1.png" alt="Portfolio Website" class="w-full h-60 object-cover">
-                <div class="p-4">
-                    <h2 class="text-2xl font-bold text-gray-800">Photo Gallery</h2>
-                    <h2 class="text-md font-semibold text-gray-800 mt-2">Bleach Characters</h2>
-                    <p class="text-gray-600">A visually engaging gallery showcasing high-quality images of popular Bleach characters.</p>
-                </div>
-            </div>
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-500 hover:scale-105">
-                <img src="project2.png" alt="E-Commerce Platform" class="w-full h-60 object-cover">
-                <div class="p-4">
-                    <h2 class="text-2xl font-bold text-gray-800">Simple Website</h2>
-                    <h2 class="text-md font-semibold text-gray-800 mt-2">BoraPalRadisePH</h2>
-                    <p class="text-gray-600">A minimalist and user-friendly website promoting the beauty of beaches in the Philippines.</p>
-                </div>
-            </div>
-            <a href="https://bagocityjobplacement.bccbsis.com/" target="_blank" class="block">
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-500 hover:scale-105">
-                    <img src="project3.png" alt="Job Matching System" class="w-full h-60 object-cover">
-                    <div class="p-4">
-                        <h2 class="text-2xl font-bold text-gray-800">Capstone 2</h2>
-                        <h2 class="text-md font-semibold text-gray-800 mt-2">Web-Based Digital Job Placement System with Machine Learning Capability</h2>
-                        <p class="text-gray-600">An intelligent job-matching platform that connects job seekers with employers using AI-powered recommendations.</p>
-                    </div>
-                </div>
-            </a>            
         </div>
     </section>
-    <section id="contact" class="container my-3 h-auto"><br>
-        <div class="text-center mb-4">
-            <h1 class="display-4 text-4xl fw-semibold text-dark font-[Orbitron] mt-14">Contact</h1>
-            <p class="text-secondary fs-5 fw-normal font-[Orbitron]">Let's talk</p>
+    <section id="projects" class="bg-gray-200 h-auto flex flex-col items-center justify-center px-4 text-center py-16">
+        <div class="max-w-3xl">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4 font-[Orbitron]">Featured Projects</h1>
+            <p class="text-lg font-semibold text-gray-700 mb-8">Showcasing innovative solutions that demonstrate my expertise in UI/UX design and data analysis.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 max-w-7xl">
+            <!-- Penguin Sales & Services -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                <div class="relative overflow-hidden">
+                    <img src="penguin-bg.jpg" alt="Penguin Sales & Services" class="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="https://godaca-penguin.vercel.app/" target="_blank" class="text-white bg-teal-600 px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors duration-300">View Live</a>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2 group-hover:text-teal-600 transition-colors duration-300">Penguin Sales & Services</h2>
+                    <p class="text-gray-600 mb-4">A comprehensive business website offering various services including bridal car, towing, trucking, and construction services.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">HTML5</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">CSS3</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">JavaScript</span>
+                    </div>
+                    <a href="https://godaca-penguin.vercel.app/" target="_blank" class="inline-block text-teal-600 hover:text-teal-700 font-semibold">
+                        <i class="fas fa-external-link-alt mr-2"></i>View Live Project
+                    </a>
+                </div>
+            </div>
+
+            <!-- Shopping Vibes -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                <div class="relative overflow-hidden">
+                    <img src="shoppingvibes-bg.jpg" alt="Shopping Vibes" class="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="https://shoppingvibes.vercel.app/" target="_blank" class="text-white bg-teal-600 px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors duration-300">View Live</a>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2 group-hover:text-teal-600 transition-colors duration-300">Shopping Vibes</h2>
+                    <p class="text-gray-600 mb-4">A comprehensive guide to shopping malls in Bacolod City, featuring detailed information about SM City, Ayala Malls, and more.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">React</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">Tailwind CSS</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">Vercel</span>
+                    </div>
+                    <a href="https://shoppingvibes.vercel.app/" target="_blank" class="inline-block text-teal-600 hover:text-teal-700 font-semibold">
+                        <i class="fas fa-external-link-alt mr-2"></i>View Live Project
+                    </a>
+                </div>
+            </div>
+
+            <!-- FindHotel -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                <div class="relative overflow-hidden">
+                    <img src="findhotel-bg.jpg" alt="FindHotel" class="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="https://findhotelwebsite.vercel.app/" target="_blank" class="text-white bg-teal-600 px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors duration-300">View Live</a>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2 group-hover:text-teal-600 transition-colors duration-300">FindHotel</h2>
+                    <p class="text-gray-600 mb-4">A modern hotel booking platform showcasing luxury accommodations in Negros Occidental with an intuitive user interface.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">Next.js</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">Tailwind CSS</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">Vercel</span>
+                    </div>
+                    <a href="https://findhotelwebsite.vercel.app/" target="_blank" class="inline-block text-teal-600 hover:text-teal-700 font-semibold">
+                        <i class="fas fa-external-link-alt mr-2"></i>View Live Project
+                    </a>
+                </div>
+            </div>
+
+            <!-- Explore Negros -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                <div class="relative overflow-hidden">
+                    <img src="explorenegros-bg.jpg" alt="Explore Negros" class="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="https://explorenegros.vercel.app/" target="_blank" class="text-white bg-teal-600 px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors duration-300">View Live</a>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2 group-hover:text-teal-600 transition-colors duration-300">Explore Negros</h2>
+                    <p class="text-gray-600 mb-4">A travel guide website showcasing the beauty of Negros Island, featuring stunning beaches and tourist destinations.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">React</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">Tailwind CSS</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">Vercel</span>
+                    </div>
+                    <a href="https://explorenegros.vercel.app/" target="_blank" class="inline-block text-teal-600 hover:text-teal-700 font-semibold">
+                        <i class="fas fa-external-link-alt mr-2"></i>View Live Project
+                    </a>
+                </div>
+            </div>
+
+            <!-- THYNK Disaster Response Network -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                <div class="relative overflow-hidden">
+                    <img src="thynk-bg.jpg" alt="THYNK Disaster Response Network" class="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="https://svchadpelle-001-site1.ptempurl.com/" target="_blank" class="text-white bg-teal-600 px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors duration-300">View Live</a>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2 group-hover:text-teal-600 transition-colors duration-300">THYNK Disaster Response Network</h2>
+                    <p class="text-gray-600 mb-4">A comprehensive platform for disaster response coordination, featuring interactive mapping, smart alerts, and team coordination tools to help communities respond effectively to emergencies.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">HTML5</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">CSS3</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">JavaScript</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">Bootstrap</span>
+                    </div>
+                    <a href="https://svchadpelle-001-site1.ptempurl.com/" target="_blank" class="inline-block text-teal-600 hover:text-teal-700 font-semibold">
+                        <i class="fas fa-external-link-alt mr-2"></i>View Live Project
+                    </a>
+                </div>
+            </div>
+
+            <!-- Interactive Photo Gallery -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                <div class="relative overflow-hidden">
+                    <img src="project1.png" alt="Photo Gallery Project" class="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="#" class="text-white bg-teal-600 px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors duration-300">View Details</a>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2 group-hover:text-teal-600 transition-colors duration-300">Interactive Photo Gallery</h2>
+                    <p class="text-gray-600 mb-4">A responsive photo gallery featuring Bleach characters, built with modern web technologies and optimized for performance.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">HTML5</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">CSS3</span>
+                        <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI-Powered Job Matching System -->
+            <a href="https://bagocityjobplacement.bccbsis.com/" target="_blank" class="block group">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                    <div class="relative overflow-hidden">
+                        <img src="project3.png" alt="Job Matching System" class="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white bg-teal-600 px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors duration-300">View Live</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2 group-hover:text-teal-600 transition-colors duration-300">AI-Powered Job Matching System</h2>
+                        <p class="text-gray-600 mb-4">An innovative platform leveraging machine learning to connect job seekers with relevant opportunities in Bago City.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">Machine Learning</span>
+                            <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">Web Development</span>
+                            <span class="px-3 py-1 bg-gray-200 rounded-full text-sm hover:bg-teal-100 transition-colors duration-300">Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+    <section id="contact" class="container my-3 h-auto py-16">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl fw-bold text-dark font-[Orbitron]">Get in Touch</h1>
+            <p class="text-secondary fs-5 mt-2 font-[Orbitron]">Let's collaborate on your next project</p>
         </div>
         <div class="row g-4">
             <div class="col-md-6">
-                <div class="p-4 bg-white shadow-lg rounded">
-                    <form id="cform" method="post">
-                        <div class="mb-3">
+                <div class="p-6 bg-white shadow-lg rounded-lg hover:shadow-xl transition-all duration-300">
+                    <form id="cform" method="post" class="needs-validation" novalidate>
+                        <div class="mb-4">
                             <label class="form-label fw-semibold">Full Name <span class="text-danger">*</span></label>
-                            <input type="text" name="name" placeholder="eg.: Kurt Aeriole Padilla" class="form-control" required>
+                            <div class="input-group">
+                                <span class="input-group-text bg-teal-600 text-white">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <input type="text" name="name" placeholder="Your full name" class="form-control focus:ring-2 focus:ring-teal-500 focus:border-teal-500" required 
+                                    pattern="[A-Za-z ]{2,50}" title="Please enter a valid name (2-50 characters)">
+                            </div>
+                            <div class="invalid-feedback">Please enter your full name (2-50 characters)</div>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label class="form-label fw-semibold">Email Address <span class="text-danger">*</span></label>
-                            <input type="email" name="email" placeholder="eg.: kurtpad2000@gmail.com" class="form-control" required>
+                            <div class="input-group">
+                                <span class="input-group-text bg-teal-600 text-white">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <input type="email" name="email" placeholder="your.email@example.com" class="form-control focus:ring-2 focus:ring-teal-500 focus:border-teal-500" required>
+                            </div>
+                            <div class="invalid-feedback">Please enter a valid email address</div>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label class="form-label fw-semibold">Message <span class="text-danger">*</span></label>
-                            <textarea name="message" placeholder="Your message here..." class="form-control" rows="5" required></textarea>
+                            <div class="input-group">
+                                <span class="input-group-text bg-teal-600 text-white">
+                                    <i class="fas fa-comment"></i>
+                                </span>
+                                <textarea name="message" placeholder="How can I help you?" class="form-control focus:ring-2 focus:ring-teal-500 focus:border-teal-500" rows="5" required 
+                                    minlength="10" maxlength="500"></textarea>
+                            </div>
+                            <div class="invalid-feedback">Please enter your message (minimum 10 characters)</div>
+                            <small class="text-muted">Maximum 500 characters</small>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary transition-transform duration-500 hover:scale-105">
-                                Send Message
+                            <button type="submit" class="btn btn-primary px-5 py-2 bg-teal-600 hover:bg-teal-700 border-none transition-all duration-300 hover:scale-105">
+                                Send Message <i class="fas fa-paper-plane ms-2"></i>
                             </button>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="p-4 bg-white shadow-lg rounded">
-                    <h2 class="h4 fw-bold text-center">Ian Godaca</h2>
-                    <p class="text-secondary text-center">UI / UX Designer | Data Analyst</p>
+                <div class="p-4 bg-white shadow-lg rounded-lg hover:shadow-xl transition-all duration-300">
+                    <h2 class="h4 fw-bold text-center text-teal-600">Ian Godaca</h2>
+                    <p class="text-secondary text-center">Consultant & Mentor</p>
                     <div class="d-flex align-items-center justify-content-between">
                         <ul class="list-unstyled mt-3 ml-4 text-dark">
-                            <li><strong>Age:</strong> 22</li>
-                            <li><strong>Address:</strong> Bago City</li>
-                            <li><strong>Residence:</strong> Philippines</li>
-                            <li><strong>Freelance:</strong> Available</li>
-                            <li><strong>Phone:</strong> +63 991 758 3639</li>
-                            <li><strong>E-mail:</strong> ianparcongodaca@gmail.com</li>
+                            <li class="mb-2"><i class="fas fa-user text-teal-600 me-2"></i><strong>Age:</strong> 23</li>
+                            <li class="mb-2"><i class="fas fa-map-marker-alt text-teal-600 me-2"></i><strong>Address:</strong> Barangay Abuanan, Bago City, Negros Occidental</li>
+                            <li class="mb-2"><i class="fas fa-globe text-teal-600 me-2"></i><strong>Residence:</strong> Philippines</li>
+                            <li class="mb-2"><i class="fas fa-university text-teal-600 me-2"></i><strong>College:</strong> Bago City College</li>
+                            <li class="mb-2"><i class="fas fa-book text-teal-600 me-2"></i><strong>Course:</strong> Bachelor of Science in Information System</li>
+                            <li class="mb-2"><i class="fas fa-graduation-cap text-teal-600 me-2"></i><strong>OJT:</strong> NOLITC - Software Development Training Program (SDTP)</li>
+                            <li class="mb-2"><i class="fas fa-briefcase text-teal-600 me-2"></i><strong>Status:</strong> Fresh Graduate</li>
+                            <li class="mb-2"><i class="fas fa-phone text-teal-600 me-2"></i><strong>Phone:</strong> +63 991 758 3639</li>
+                            <li class="mb-2"><i class="fas fa-envelope text-teal-600 me-2"></i><strong>E-mail:</strong> ianparcongodaca@gmail.com</li>
                         </ul>
                         <div class="col-md-6 d-flex justify-content-end transition-transform duration-500 hover:scale-105">
                             <img src="contactimg.jpg" alt="Ian Godaca Picture" class="img-fluid rounded-circle shadow-lg h-40 w-40" >
                         </div>
                     </div> 
                 </div>           
-                <div class="col-md-6 mt-3 ml-5">
-                    <a href="https://www.facebook.com/ian.godaca.77" class="d-flex align-items-center text-primary mb-2 hover:underline">
+                <div class="col-md-6 mt-4 ml-5">
+                    <a href="https://www.facebook.com/ian.godaca.77" class="d-flex align-items-center text-teal-600 mb-3 hover:text-teal-700 transition-colors duration-300">
                         <i class="fa-brands fa-square-facebook me-2 fs-3"></i> Ian Godaca
                     </a>
-                    <a href="mailto:ianparcongodaca@gmail.com" class="d-flex align-items-center text-primary mb-2 hover:underline">
+                    <a href="mailto:ianparcongodaca@gmail.com" class="d-flex align-items-center text-teal-600 mb-3 hover:text-teal-700 transition-colors duration-300">
                         <i class="fa-solid fa-envelope me-2 fs-3"></i> ianparcongodaca@gmail.com
                     </a>
-                    <a href="https://www.tiktok.com/@iangodaca" class="d-flex align-items-center text-primary mb-2 hover:underline">
+                    <a href="https://www.tiktok.com/@iangodaca" class="d-flex align-items-center text-teal-600 mb-3 hover:text-teal-700 transition-colors duration-300">
                         <i class="fa-brands fa-tiktok me-2 fs-3"></i> @iangodaca
                     </a>
-                    <a href="https://www.instagram.com/iangodaca9" class="d-flex align-items-center text-primary hover:underline">
+                    <a href="https://www.instagram.com/iangodaca9" class="d-flex align-items-center text-teal-600 hover:text-teal-700 transition-colors duration-300">
                         <i class="fa-brands fa-instagram me-2 fs-3"></i> iangodaca_
                     </a>
                 </div>                
             </div>
         </div>
     </section>
-    <footer class="bg-[#4D4D4D] text-white text-center py-5 mt-5">
+    <footer class="bg-dark text-white text-center py-3 mt-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <p class="mb-3">&copy; 2025 Ian Godaca - UI / UX Designer | Data Analyst. All rights reserved.</p>
-                    <button onclick="scrollToTop()" class="btn btn-outline-light px-4 py-2 transition-transform duration-500 hover:scale-110">
-                        Back to Top
-                    </button>
+                    <p class="mb-0">&copy; 2025 Ian Godaca - UI / UX Designer | Data Analyst. All rights reserved.</p>
                 </div>
             </div>
         </div>
     </footer>
+    <button class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        // Scroll to top button visibility
+        window.addEventListener('scroll', () => {
+            const scrollBtn = document.querySelector('.scroll-to-top');
+            if (window.scrollY > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const navLinks = document.querySelectorAll("nav ul li a");
-            const sections = document.querySelectorAll("section");
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const navMenu = document.getElementById('nav-menu');
 
-            function setActiveLink() {
-                let currentSection = "";
-                sections.forEach((section) => {
-                    const sectionTop = section.offsetTop - 100; // Adjust offset for fixed navbar
-                    if (window.scrollY >= sectionTop) {
-                        currentSection = section.getAttribute("id");
+        mobileMenuButton.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+            navMenu.classList.toggle('flex');
+            navMenu.classList.toggle('flex-col');
+            navMenu.classList.toggle('absolute');
+            navMenu.classList.toggle('top-20');
+            navMenu.classList.toggle('left-0');
+            navMenu.classList.toggle('w-full');
+            navMenu.classList.toggle('bg-teal-400');
+            navMenu.classList.toggle('p-4');
+        });
+
+        // Skill bars animation
+        const skillItems = document.querySelectorAll('.skill-item');
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBar = entry.target.querySelector('.bg-teal-600');
+                    const width = progressBar.getAttribute('data-width');
+                    progressBar.style.width = width;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        skillItems.forEach(item => {
+            observer.observe(item);
+        });
+
+        // Form validation
+        (() => {
+            'use strict';
+            const forms = document.querySelectorAll('.needs-validation');
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
                     }
-                });
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
 
-                navLinks.forEach((link) => {
-                    link.classList.remove("active");
-                    if (link.getAttribute("href").includes(currentSection)) {
-                        link.classList.add("active");
-                    }
-                });
+        // Active navigation link
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-stone-200', 'underline');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('text-stone-200', 'underline');
+                }
+            });
+        });
+
+        // Loading animation
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 1000);
+        });
+
+        // Typing animation
+        const roles = ['UI / UX Designer', 'Data Analyst', 'Web Developer'];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingDelay = 100;
+        const erasingDelay = 50;
+        const newRoleDelay = 2000;
+
+        function type() {
+            const currentRole = roles[roleIndex];
+            const typingText = document.getElementById('typing-text');
+            
+            if (isDeleting) {
+                typingText.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
             }
 
-            window.addEventListener("scroll", setActiveLink);
-        });
-    </script>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script>
-        ScrollReveal().reveal('.animate-slide-in', { delay: 100, distance: '50px', origin: 'bottom', duration: 800, easing: 'ease-in-out' });
-        ScrollReveal().reveal('.animate-fade-in', { delay: 300, distance: '0', opacity: 0, duration: 1000 });
+            if (!isDeleting && charIndex === currentRole.length) {
+                isDeleting = true;
+                setTimeout(type, newRoleDelay);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(type, typingDelay);
+            } else {
+                setTimeout(type, isDeleting ? erasingDelay : typingDelay);
+            }
+        }
+
+        // Start typing animation
+        setTimeout(type, newRoleDelay);
     </script>
 </body>
 </html>
